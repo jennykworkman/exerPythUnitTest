@@ -22,6 +22,10 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(calc.divide(-1, 1), -1)
         self.assertEqual(calc.divide(-1, -1), 1)
 
+        self.assertRaises(ValueError, calc.divide, 10, 0)
+        # or alternatively:
+        with self.assertRaises(ValueError):
+            calc.divide(10, 0)
 
 if __name__ == '__main__':
     unittest.main()
